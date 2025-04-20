@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="syllabusApp">
+<head>
+  <title>Syllabus SPA</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+  <script>
+    const app = angular.module("syllabusApp", ["ngRoute"]);
+
+    app.config(function($routeProvider) {
+      $routeProvider
+        .when("/subject1", { template: "<h2>Full Stack Development</h2>" })
+        .when("/subject2", { template: "<h2>Data Science</h2>" })
+        .otherwise({ template: "<h2>Welcome to M.Sc (CS) Sem-II</h2>" });
+    });
+  </script>
+</head>
+<body>
+  <a href="#!subject1">Subject 1</a> | <a href="#!subject2">Subject 2</a>
+  <div ng-view></div>
+</body>
+</html>

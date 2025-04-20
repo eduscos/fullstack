@@ -1,0 +1,58 @@
+<!-- feedback.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Feedback</title>
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const mobile = document.getElementById("mobile").value;
+      const feedback = document.getElementById("feedback").value;
+
+      const nameRegex = /^[A-Za-z ]+$/;
+      const emailRegex = /^[a-zA-Z0-9._]+@[a-z]+\.[a-z]{2,4}$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      if (!nameRegex.test(name)) {
+        alert("Invalid Name");
+        return false;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert("Invalid Email");
+        return false;
+      }
+
+      if (!mobileRegex.test(mobile)) {
+        alert("Invalid Mobile Number");
+        return false;
+      }
+
+      if (feedback === "") {
+        alert("Please select feedback");
+        return false;
+      }
+
+      alert("Form submitted successfully");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="return validateForm()">
+    Name: <input type="text" id="name"><br>
+    Email: <input type="text" id="email"><br>
+    Mobile: <input type="text" id="mobile"><br>
+    Feedback:
+    <select id="feedback">
+      <option value="">Select</option>
+      <option value="Not Good">Not Good</option>
+      <option value="Good">Good</option>
+      <option value="Very Good">Very Good</option>
+      <option value="Excellent">Excellent</option>
+    </select><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

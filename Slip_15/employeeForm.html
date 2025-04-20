@@ -1,0 +1,21 @@
+<form onsubmit="return validate()">
+  Name: <input id="name"><br>
+  Email: <input id="email"><br>
+  Mobile: <input id="mobile"><br>
+  Department: <input id="dept"><br>
+  Joining Date: <input id="date" type="date"><br>
+  <button>Submit</button>
+</form>
+
+<script>
+function validate() {
+  const name = /^[A-Za-z ]+$/;
+  const email = /^[a-z0-9._]+@[a-z]+\.[a-z]{2,4}$/;
+  const mobile = /^[0-9]{10}$/;
+
+  if (!name.test(name.value)) return alert("Invalid Name"), false;
+  if (!email.test(email.value)) return alert("Invalid Email"), false;
+  if (!mobile.test(mobile.value)) return alert("Invalid Mobile"), false;
+  return true;
+}
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+<head>
+  <title>Student Registration</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+  <h2>{{greeting}}</h2>
+
+  <form name="regForm" ng-submit="submitForm()">
+    First Name: <input type="text" ng-model="student.fname" required pattern="[A-Za-z]+"><br><br>
+    Last Name: <input type="text" ng-model="student.lname" required pattern="[A-Za-z]+"><br><br>
+    Age: <input type="number" ng-model="student.age" min="18" max="50" required><br><br>
+    <input type="submit" value="Register">
+  </form>
+
+  <p ng-show="submitted">Form Submitted Successfully!</p>
+
+  <script>
+    angular.module('myApp', [])
+      .controller('myCtrl', function ($scope, $interval) {
+        let hour = new Date().getHours();
+        if (hour < 12) $scope.greeting = "Good Morning!";
+        else if (hour < 17) $scope.greeting = "Good Afternoon!";
+        else $scope.greeting = "Good Evening!";
+
+        $scope.submitted = false;
+        $scope.submitForm = function () {
+          if ($scope.regForm.$valid) {
+            $scope.submitted = true;
+            // Simulate AJAX (can be replaced with $http.post())
+          }
+        };
+      });
+  </script>
+
+</body>
+</html>

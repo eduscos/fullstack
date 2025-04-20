@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Registration</title>
+  <script>
+    function validateForm() {
+      const dob = document.getElementById("dob").value;
+      const joiningDate = document.getElementById("joiningDate").value;
+      const salary = document.getElementById("salary").value;
+
+      const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // yyyy-mm-dd
+      const salaryRegex = /^[1-9]\d*(\.\d{1,2})?$/;
+
+      if (!dateRegex.test(dob)) {
+        alert("Enter a valid Date of Birth (YYYY-MM-DD)");
+        return false;
+      }
+
+      if (!dateRegex.test(joiningDate)) {
+        alert("Enter a valid Joining Date (YYYY-MM-DD)");
+        return false;
+      }
+
+      if (!salaryRegex.test(salary)) {
+        alert("Enter a valid Salary");
+        return false;
+      }
+
+      alert("Form is valid!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Employee Registration Form</h2>
+  <form onsubmit="return validateForm()">
+    DOB: <input type="date" id="dob" /><br /><br />
+    Joining Date: <input type="date" id="joiningDate" /><br /><br />
+    Salary: <input type="text" id="salary" /><br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+</html>

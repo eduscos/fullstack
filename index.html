@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slip Solutions Download</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+    h2 { margin-top: 30px; color: #333; }
+    ul { list-style-type: none; padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    a { text-decoration: none; color: #007BFF; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Slip Solutions - Download Files</h1>
+
+  <div id="content"></div>
+
+  <script>
+    const slips = {
+      "Slip_1": ["login.html", "student.html"],
+      "Slip_2": ["file.js", "reverse.js"],
+      "Slip_3": ["login.html", "loginSystem.js", "teacher.js"],
+      "Slip_4": ["elearning.html", "elearning.js", "registration.html"],
+      "Slip_5": ["spaValidation.html", "uploadForm.html", "uploadForm.js"],
+      "Slip_6": ["fileServer.js", "ngClick.html"],
+      "Slip_7": ["dateTime.html", "eventApp.js"],
+      "Slip_8": ["server.js", "studentDetail.html"],
+      "Slip_9": ["concatForm.js", "fileServer.js"],
+      "Slip_10": ["createCollegeDB.js", "main.js", "module.js"],
+      "Slip_11": ["createMovieDB.js", "downloadFile.js", "sample.txt"],
+      "Slip_12": ["customer.js", "feedback.html"],
+      "Slip_13": ["lowercase.js", "student.html"],
+      "Slip_14": ["employee.html", "server.js"],
+      "Slip_15": ["employeeForm.html", "getStudents.js"],
+      "Slip_16": ["event.js", "recepie.js"],
+      "Slip_17": ["student.html", "syllabus.html"],
+      "Slip_18": ["customer.js", "login.html"],
+      "Slip_19": ["form.html", "upper.js"],
+      "Slip_20": ["student.js", "validate.html"],
+      "Slip_21": ["filedownload.js", "movie.js"],
+      "Slip_22": ["employee.html", "event.js"],
+      "Slip_23": ["main.js", "module.js", "server.js"],
+      "Slip_24": ["elearning.html", "elearning.js", "validate.html"],
+      "Slip_25": ["event.js", "location.html"]
+    };
+
+    const contentDiv = document.getElementById("content");
+
+    for (let slip in slips) {
+      const section = document.createElement("div");
+      section.innerHTML = `<h2>${slip}</h2>`;
+      const ul = document.createElement("ul");
+
+      slips[slip].forEach(file => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `${slip}/${file}`;
+        a.download = file;
+        a.textContent = file;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+      section.appendChild(ul);
+      contentDiv.appendChild(section);
+    }
+  </script>
+</body>
+</html>
